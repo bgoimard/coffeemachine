@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: gatewaycoffee
+  config:
+    import: 'configserver:http://localhost:8071'
+
+server:
+  port: 8072
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      access: unrestricted
+
+info:
+  app:
+    name: "GatewayCoffee"
+    description: "Coffee Gateway"
+    version: "2.0"
+    

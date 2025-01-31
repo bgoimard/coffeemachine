@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: drinkCoffeeRestTemplate
+server:
+  port: 8089

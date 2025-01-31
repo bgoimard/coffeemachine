@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: coffeemachine
+  profiles:
+    active:
+    - prod
+  config:
+    import: 'configserver:'
+  cloud:
+    config:
+      uri: 'http://localhost:8071/'
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      access: unrestricted
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.value}
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka
+
+info:
+  app:
+    name: "Coffees"
+    
+            
+greeting:
+  name: Dakota
+  coffee: ${greeting.name} is drinking cafe Cereza
+
+build:
+  version: "3.0"
+
+account:
+  message: "Welcome to Coffee App"
+  details:
+    name: "bob"
+    email: "toto.tit@ac.fr"
+  phone:
+    - 2003040506
+    - 0107080901

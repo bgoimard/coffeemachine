@@ -1,0 +1,8 @@
+package org.formation.client;
+
+import org.springframework.cloud.openfeign.FeignClient;
+
+@FeignClient(url = "http://localhost:8080/", value = "drink")
+public class CoffeeClient {
+
+}

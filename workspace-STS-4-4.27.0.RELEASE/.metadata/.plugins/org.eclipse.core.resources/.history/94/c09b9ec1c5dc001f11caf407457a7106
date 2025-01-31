@@ -1,0 +1,26 @@
+package org.formation.controller;
+
+import java.util.List;
+
+import org.formation.model.Coffee;
+import org.formation.service.CoffeeService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class CoffeeController {
+	
+	//pas besoin de @Autowired c'est considéré comme un bean
+	private CoffeeService service;
+
+	public CoffeeController(CoffeeService service) {
+		this.service = service;
+	}
+	
+	//endpoint doivent avoir des s (bonnes pratiques)
+	@GetMapping("coffees")
+	public List<Coffee> getCoffees() {
+		return service.getAll();
+	}
+
+}

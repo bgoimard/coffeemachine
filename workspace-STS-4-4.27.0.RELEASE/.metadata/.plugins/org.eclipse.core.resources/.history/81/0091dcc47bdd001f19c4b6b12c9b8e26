@@ -1,0 +1,52 @@
+package org.formation.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.formation.model.Coffee;
+import org.formation.service.CoffeeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+public class CoffeeController {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(CoffeeController.class);
+	
+	//pas besoin de @Autowired c'est considéré comme un bean
+	private CoffeeService service;
+
+	CoffeeController(CoffeeService service) {
+		this.service = service;
+	}
+	
+	//endpoint doivent avoir des s (bonnes pratiques)
+	@GetMapping("coffees")
+	List<Coffee> getCoffees() {
+		LOG.trace("==============> TRACE");
+		LOG.debug("==============> DEBUG");
+		LOG.info("==============> INFO");
+		LOG.warn("==============> WARN");
+		LOG.error("==============> ERROR");
+		
+		return service.getAll();
+	}
+
+	@PostMapping("coffees")
+	Coffee createCoffee(@RequestBody Coffee coffee) {
+		return service.save(coffee);
+	}
+	
+	@GetMapping("coffees/{id}")
+	public ResponseEntity<Coffee> getCoffeeById(@PathVariable Long id) {
+		return service.getById(id);
+	}
+	
+}

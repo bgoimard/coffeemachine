@@ -1,0 +1,16 @@
+package org.formation.service;
+
+import java.util.List;
+
+import org.formation.model.Coffee;
+import org.springframework.stereotype.Service;
+
+@Service("service")
+public class CoffeeServiceImpl implements CoffeeService {
+
+	@Override
+	public List<Coffee> getAll() {
+		return List.of(new Coffee("Granador"), new Coffee("tres puntas"), new Coffee("robusta"));
+	}
+
+}

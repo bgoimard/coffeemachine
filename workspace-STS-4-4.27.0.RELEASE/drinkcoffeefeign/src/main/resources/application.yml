@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: drinkcoffeefeign
+server:
+  port: 8089
+  
+info:
+  app:
+    name: "DrinkCoffeeFeign"
+    description: "Coffee Drinker"
+    version: "2.0"
+            
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      access: unrestricted
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.value}
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka

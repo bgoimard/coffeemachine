@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: coffeeMachine
+  profiles:
+    active:
+    - default
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+greeting:
+  name: Dakota
+  coffee: ${greeting.name} is drinking cafe Cereza
+
+build:
+  version: "3.0"
+
+account:
+  message: "Welcome to Coffee App"
+  details:
+    name: "bob"
+    email: "toto.tit@ac.fr"
+  phone:
+    - 2003040506
+    - 0107080901

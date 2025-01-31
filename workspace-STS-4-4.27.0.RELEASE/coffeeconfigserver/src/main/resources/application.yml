@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: coffeeconfigserver
+  profiles:
+    active:
+    - git
+  cloud:
+    config:
+      server:
+        git:
+          uri: "https://github.com/bgoimard/stsconfig.git"
+          default-label: main
+          clone-on-start: true
+          timeout: 5
+          force-pull: true
+#        native:
+#          search-locations:
+#          - "classpath:config"
+
+encrypt:
+  key: '898765445HGTFREDKKJIIJJ4443450'
+  
+server:
+  port: 8071
