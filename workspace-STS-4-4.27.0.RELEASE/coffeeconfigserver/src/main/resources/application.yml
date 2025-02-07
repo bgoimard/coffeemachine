@@ -17,6 +17,20 @@ spring:
 #          search-locations:
 #          - "classpath:config"
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+      probes:
+          enabled: true
+          
 encrypt:
   key: '898765445HGTFREDKKJIIJJ4443450'
   

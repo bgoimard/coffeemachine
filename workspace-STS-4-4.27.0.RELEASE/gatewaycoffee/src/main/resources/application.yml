@@ -10,9 +10,6 @@ spring:
           enabled: true
           lower-case-service-id: true
 
-server:
-  port: 8072
-      
 management:
   endpoints:
     web:
@@ -24,6 +21,8 @@ management:
   endpoint:
     health:
       show-details: always
+      probes:
+          enabled: true
     gateway:
       access: unrestricted
 

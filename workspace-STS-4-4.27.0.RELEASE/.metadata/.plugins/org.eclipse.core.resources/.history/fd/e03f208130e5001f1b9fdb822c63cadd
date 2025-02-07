@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: gatewaycoffee
+  config:
+    import: 'configserver:http://localhost:8071'
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  info:
+    env:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      access: unrestricted
+
+info:
+  app:
+    name: "GatewayCoffee"
+    description: "Coffee Gateway"
+    version: "2.0"
+    
